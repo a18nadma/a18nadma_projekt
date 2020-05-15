@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/acnhBlue"
+    tools:context=".BlankFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="casual"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:text="@string/about_this_app"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/about_text"
+        android:layout_width="match_parent"
+        android:layout_height="476dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="160dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="0dp"
+        android:text="@string/this_is_an_app_for_my_fellow_animal_crossing_new_horizons_fans_you_ll_find_information_about_the_flowers_available_in_this_game_along_with_their_respective_colors_so_much_more_will_be_implemented_such_as_a_section_to_admire_the_cuteness_of_marshal"
+        android:textSize="18sp" />
+
+</FrameLayout>
