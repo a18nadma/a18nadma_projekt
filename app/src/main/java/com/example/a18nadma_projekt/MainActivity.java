@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        new JsonTask().execute("https://wwwlab.iit.his.se/a18nadma/json/AC_flowers.json");
+
         Button button = findViewById(R.id.start_second_activity);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        new JsonTask().execute("https://wwwlab.iit.his.se/a18nadma/json/AC_flowers.json");
+
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -109,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
                 JSONArray jsonArray = new JSONArray(json);
                 for (int i = 0; i < jsonArray.length(); i++){
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    String name = jsonObject.getString("Flower");
-                    int color = jsonObject.getInt("Colors");
+                    String name = jsonObject.getString("flower");
+                    int color = jsonObject.getInt("colors");
 
                     FlowerName.add(name);
                     FlowerColor.add(color);
