@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayAdapter<String> adapter;
     private ArrayList<String> FlowerName=new ArrayList<String>();
-    private ArrayList<String> FlowerColor=new ArrayList<String>();
+    private ArrayList<Integer> FlowerColor=new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         my_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                Toast.makeText(getApplicationContext(), FlowerName.get(i) + " has the following colors: " + FlowerColor.get(i), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), FlowerName.get(i) + " has " + FlowerColor.get(i) + " amount of colors!", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i < jsonArray.length(); i++){
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     String name = jsonObject.getString("Flower");
-                    String color = jsonObject.getString("Colors");
+                    int color = jsonObject.getInt("Colors");
 
                     FlowerName.add(name);
                     FlowerColor.add(color);
