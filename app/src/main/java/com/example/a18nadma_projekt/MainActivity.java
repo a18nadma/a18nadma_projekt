@@ -6,8 +6,17 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,13 +25,29 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    ArrayAdapter<String> adapter;
+    private ArrayList<String> FlowerName=new ArrayList<String>();
+    private ArrayList<String> FlowerColor=new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        adapter = new ArrayAdapter<String>(MainActivity.this, R.layout.list_item_textview, R.id.flower_list, FlowerName);
+
+        ListView my_listView = (ListView) findViewById(R.id.my_listView);
+        my_listView.setAdapter(adapter);
+        my_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Toast.makeText(getApplicationContext(), FlowerName.get(i) + " has the following colors: " + FlowerColor.get(i), Toast.LENGTH_LONG).show();
+            }
+        });
 
         Button button = findViewById(R.id.start_second_activity);
         button.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +101,27 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String json){
+            try {
+                JSONArray jsonArray = new JSONArray(json);
+                for (int i = 0; i < jsonArray.length(); i++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    String name = jsonObject.getString("Flower");
+                    String color = jsonObject.getString("Colors");
+
+                    FlowerName.add(name);
+                    FlowerColor.add(color);
+                }
+
+                adapter.notifyDataSetChanged();
+            }
+
+            catch (JSONException e){
+                Log.d("flower", e.getLocalizedMessage());
+            }
         }
     }
 }
