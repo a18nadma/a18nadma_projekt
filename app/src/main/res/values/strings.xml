@@ -5,4 +5,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="about_this_app">About this app!</string>
     <string name="this_is_an_app_for_my_fellow_animal_crossing_new_horizons_fans_you_ll_find_information_about_the_flowers_available_in_this_game_along_with_their_respective_colors_so_much_more_will_be_implemented_such_as_a_section_to_admire_the_cuteness_of_marshal">This is an app for my fellow Animal Crossing New Horizons fans, You\'ll find information about the flowers available in this game along with their respective colors. So much more will be implemented such as a section to admire the cuteness of Marshal</string>
+    <string name="close_the_about_page">Close the about-page</string>
+    <string name="open_the_about_page">Open the About-page</string>
 </resources>

@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
         new JsonTask().execute("https://wwwlab.iit.his.se/a18nadma/json/AC_flowers.json");
     }
 
