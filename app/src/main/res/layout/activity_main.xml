@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="@string/i_am_addicted_to_animal_crossing_and_i_need_help"
+        android:textColor="#112280"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/my_listView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ListView
         android:id="@+id/my_listView"
         android:layout_width="wrap_content"
