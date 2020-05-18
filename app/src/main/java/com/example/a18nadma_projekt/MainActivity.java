@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        new JsonTask().execute("https://wwwlab.iit.his.se/a18nadma/json/AC_flowers.json");
+        new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a18nadma");
 
         Button button = findViewById(R.id.start_second_activity);
         button.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         protected String doInBackground(String... params) {
             try {
-                URL url = new URL("https://wwwlab.iit.his.se/a18nadma/json/AC_flowers.json");
+                URL url = new URL("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a18nadma");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
 
@@ -111,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
                 JSONArray jsonArray = new JSONArray(json);
                 for (int i = 0; i < jsonArray.length(); i++){
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    String name = jsonObject.getString("flower");
-                    int color = jsonObject.getInt("colors");
+                    String name = jsonObject.getString("name");
+                    int color = jsonObject.getInt("size");
 
                     FlowerName.add(name);
                     FlowerColor.add(color);
